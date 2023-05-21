@@ -1,0 +1,27 @@
+:root{
+    --personilized-bg-color: #eee;
+    --delete: #ee0033;
+    --edit: #aaa;
+}
+
+body{
+    background-color: var(--personilized-bg-color);
+}
+
+.form-inline{
+    display: inline;
+}
+
+a{
+    text-decoration: none;
+}
+
+.a-delete{
+    color: var(--delete);
+    background-color: transparent;
+    border: none;
+}
+
+.a-edit{
+    color: var(--edit);
+}
