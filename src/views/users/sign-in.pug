@@ -4,12 +4,13 @@ block content
 
     block main
         main.container.p-5
-            section.jumbotron.mt-4.card.text-center
+            section.jumbotron.card
                 div.card-header
                     h2.display-4 Access
                 div.card-body
-                    form.container(action="/users/sign-in" method="POST")
-                        div.form-group.container
-                            input.form-control.mt-2(type="email" name="email" placeholder="Type your email" required)
-                            input.form-control.mt-2(type="password" name="password" placeholder="Type your password" required)
-                            input.btn.btn-primary.mt-2(type="submit" name="send" value="Send")
+                    form.container.d-flex.flex-column.align-items-center(action="/users/sign-in" method="POST")
+                        input.form-control.mt-2(type="email" name="email" placeholder="Type your email" required)
+                        input.form-control.mt-2(type="password" name="password" placeholder="Type your password" required)
+                        input.btn.btn-primary.mt-2(type="submit" name="send" value="Send")
+                        a(href="/google")
+                            span.material-symbols-outlined mail

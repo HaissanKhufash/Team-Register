@@ -4,29 +4,29 @@ block content
 
     block main
         main.container.p-5
-            section.jumbotron.mt-4.card.text-center
+            section.jumbotron.card
                 div.card-header
                     h2.display-4 Teams
-                div.card-body
-                table.table
-                    thead
-                        tr
-                            th(scope='col') Team
-                            th(scope='col') Titles
-                            th(scope='col') Current manager
-                            th(scope='col') Kit colors
-                            th(scope='col') Action
-
-                    tbody
-                        each team in teams
+                div.card-body.card
+                    table.table
+                        thead
                             tr
-                                td= team.team
-                                td= team.titles
-                                td= team.crrMng
-                                td= team.kitCls
-                                td
-                                    a(href=`/teams/edit/${team._id}`)
-                                        span.material-symbols-outlined.a-edit edit
-                                    form(action=`/teams/delete/${team._id}?_method=DELETE` method="POST").form-inline
-                                        input(type="hidden" name="_method" value="DELETE")
-                                        button(type="submit").material-symbols-outlined.a-delete delete
+                                th(scope='col') Team
+                                th(scope='col') Titles
+                                th(scope='col') Current manager
+                                th(scope='col') Kit colors
+                                th(scope='col') Action
+
+                        tbody
+                            each team in teams
+                                tr
+                                    td= team.team
+                                    td= team.titles
+                                    td= team.crrMng
+                                    td= team.kitCls
+                                    td
+                                        a(href=`/teams/edit/${team._id}`)
+                                            span.material-symbols-outlined.a-edit edit
+                                        form.d-inline(action=`/teams/delete/${team._id}?_method=DELETE` method="POST").form-inline
+                                            input(type="hidden" name="_method" value="DELETE")
+                                            button.material-symbols-outlined.a-delete.p-0(type="submit") delete

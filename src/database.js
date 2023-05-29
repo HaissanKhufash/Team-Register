@@ -9,4 +9,4 @@ mongoose
 
     .connect(MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true })
     .then(db => console.log('Database connected'))
-    .catch(err => console.log(err))
+    .catch(err => console.log(err));

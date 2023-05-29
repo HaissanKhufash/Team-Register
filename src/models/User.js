@@ -6,13 +6,17 @@ const { Schema, model } = require('mongoose'),
     }, { timestamps: true });
 
 userSchema.methods.encryptPassword = async function (password) {
-    const { genSalt, hash } = require('bcryptjs');
-
-    const salt = await genSalt(12);
+    const { genSalt, hash } = require('bcryptjs'),
+        salt = await genSalt(12);
 
     this.password = await hash(password, salt);
 }
 
-User = model('User', userSchema);
+userSchema.methods.matchPasswords = async function (password, hashedPassword) {
+    const { compare } = require('bcryptjs');
+    return await compare(password, hashedPassword);
+}
+
+const User = model('User', userSchema);
 
 module.exports = User;

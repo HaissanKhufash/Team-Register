@@ -1,15 +1,20 @@
+/* Custom properties */
 :root{
-    --personilized-bg-color: #eee;
+    --white: #F7F7F7;
+    --grey: #DDD;
+    --grey-with-opacity: #DDDDDD80;
+    --black: #393E46;
+    --pastel: #A9AEB6;
+    --error: #992F2F75;
+    --success: #2F996275;
     --delete: #ee0033;
     --edit: #aaa;
 }
 
-body{
-    background-color: var(--personilized-bg-color);
-}
+/* Reset values */
 
-.form-inline{
-    display: inline;
+body{
+    background-color: var(--white);
 }
 
 a{
@@ -24,4 +29,18 @@ a{
 
 .a-edit{
     color: var(--edit);
+}
+
+/* My styles */
+.bg-black{
+    background-color: var(--black) !important;
+}
+
+/* Modify Bootstrap values */
+.alert-danger{
+    background-color: var(--error);
+}
+
+.alert-success{
+    background-color: var(--success);
 }

@@ -4,14 +4,12 @@ block content
 
     block main
         main.container.p-5
-            section.jumbotron.mt-4.card.text-center
+            section.jumbotron.card
                 div.card-header
                     h2.display-4 Register account
-                div.card-body
-                    form.container(action="/users/sign-up" method="POST")
-                        div.form-group.container
-                            input.form-control.mt-2(type="text" name="name" placeholder="Type your name" required)
-                            input.form-control.mt-2(type="email" name="email" placeholder="Type your email" required)
-                            input.form-control.mt-2(type="password" name="password" placeholder="Type your password" required)
-                            input.form-control.mt-2(type="password" name="verify_password" placeholder="Validate password" required)
-                            input.btn.btn-primary.mt-2(type="submit" name="send" value="Send")
+                form.container.card-body.d-flex.flex-column.align-items-center(action="/users/sign-up" method="POST")
+                    input.form-control.mt-2(type="text" name="name" placeholder="Type your name" required)
+                    input.form-control.mt-2(type="email" name="email" placeholder="Type your email" required)
+                    input.form-control.mt-2(type="password" name="password" placeholder="Type your password" required)
+                    input.form-control.mt-2(type="password" name="confirmPassword" placeholder="Validate password" required)
+                    input.btn.btn-primary.mt-2.col-6(type="submit" name="send" value="Send")
