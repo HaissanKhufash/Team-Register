@@ -15,31 +15,32 @@ html(lang="en")
         nav.navbar.navbar-expand-lg.bg-body-tertiary.sticky-top.bg-dark.bg-black(data-bs-theme="dark")
             div.container
                 a.navbar-brand(href='/') Leagues
-                button.navbar-toggler(type='button', data-bs-toggle='collapse', data-bs-target='#navbarNavDropdown', aria-controls='navbarNavDropdown', aria-expanded='false', aria-label='Toggle navigation')
+                button.navbar-toggler.border.border-0(type='button', data-bs-toggle='collapse', data-bs-target='#navbarNavDropdown', aria-controls='navbarNavDropdown', aria-expanded='false', aria-label='Toggle navigation')
                     span.navbar-toggler-icon
-                ul.navbar-nav.ms-auto
-                    li.nav-item
-                        a.nav-link.active(aria-current='page', href='/') Home
-                    li.nav-item
-                        a.nav-link(href='/about') About
+                #navbarNavDropdown.collapse.navbar-collapse.py-2
+                    ul.navbar-nav.ms-auto
+                        li.nav-item
+                            a.nav-link.active(aria-current='page', href='/') Home
+                        li.nav-item
+                            a.nav-link(href='/about') About
 
-                if !user
-                    ul.navbar-nav
-                        li.nav-item
-                            a.nav-link(href='/users/sign-in') Sign in
-                        li.nav-item
-                            a.nav-link(href='/users/sign-up') Sign up
-                else
-                    .dropdown
-                        a.btn.btn-secondary.dropdown-toggle(href='#', role='button', data-bs-toggle='dropdown', aria-expanded='false')
-                            | Features
-                        ul.dropdown-menu
-                            li
-                                a.dropdown-item(href='/teams/add') Add team
-                            li
-                                a.dropdown-item(href='/teams') View teams
-                            li
-                                a.dropdown-item(href='/users/log-out') Log out
+                    if !user
+                        ul.navbar-nav
+                            li.nav-item
+                                a.nav-link(href='/users/sign-in') Sign in
+                            li.nav-item
+                                a.nav-link(href='/users/sign-up') Sign up
+                    else
+                        .dropdown
+                            a.btn.btn-secondary.dropdown-toggle.border.border-0(href='#', role='button', data-bs-toggle='dropdown', aria-expanded='false')
+                                | Features
+                            ul.dropdown-menu
+                                li
+                                    a.dropdown-item(href='/teams/add') Add team
+                                li
+                                    a.dropdown-item(href='/teams') View teams
+                                li
+                                    a.dropdown-item(href='/users/log-out') Log out
 
         if success_msg[0]
             div(class="alert alert-success alert-dismissible fade show" role="alert")

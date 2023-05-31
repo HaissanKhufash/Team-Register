@@ -3,7 +3,7 @@ const User = require('../models/User'),
 
 const userController = {};
 
-userController.renderSignUpForm = (req, res) => res.render('./users/sign-up');
+userController.renderSignUpForm = (req, res) => res.status(200).render('./users/sign-up');
 
 userController.signUp = async (req, res) => {
     try {
@@ -13,15 +13,15 @@ userController.signUp = async (req, res) => {
         await newUser.encryptPassword(password);
         await newUser.save();
 
-        return res.redirect('/users/sign-in')
+        return res.status(200).redirect('/users/sign-in')
 
     } catch (err) {
         req.flash('err_msg', err.message);
-        return res.redirect('/users/sign-up');
+        return res.status(400).redirect('/users/sign-up');
     }
 }
 
-userController.renderSignInForm = (req, res) => res.render('./users/sign-in');
+userController.renderSignInForm = (req, res) => res.status(200).render('./users/sign-in');
 
 userController.signInLocal = passport.authenticate('local', { failureRedirect: '/users/sign-in', successRedirect: '/teams', failureFlash: true, })
 
@@ -34,7 +34,7 @@ userController.logOut = (req, res) => {
         if (err) { return next(err); }
 
         req.flash('success_msg', 'Session has been closed');
-        res.redirect('/users/sign-in');
+        res.status(200).redirect('/users/sign-in');
     });
 }
 

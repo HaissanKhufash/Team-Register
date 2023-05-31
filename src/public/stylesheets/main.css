@@ -1,5 +1,5 @@
 /* Custom properties */
-:root{
+:root {
     --white: #F7F7F7;
     --grey: #DDD;
     --grey-with-opacity: #DDDDDD80;
@@ -13,34 +13,66 @@
 
 /* Reset values */
 
-body{
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
     background-color: var(--white);
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-.a-delete{
+.a-delete {
     color: var(--delete);
     background-color: transparent;
     border: none;
 }
 
-.a-edit{
+.a-edit {
     color: var(--edit);
 }
 
 /* My styles */
-.bg-black{
+.bg-black {
     background-color: var(--black) !important;
 }
 
 /* Modify Bootstrap values */
-.alert-danger{
+.alert-danger {
     background-color: var(--error);
 }
 
-.alert-success{
+.alert-success {
     background-color: var(--success);
 }
+
+.navbar-nav a:hover {
+    color: var(--white);
+    background-color: var(--pastel);
+    border-radius: .25rem;
+}
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {}
