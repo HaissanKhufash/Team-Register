@@ -16,7 +16,6 @@ const express = require('express'),
   passport = require('passport');
 
 require('./helpers/passport-local');
-require('./helpers/passport-google');
 
 app
   .set('port', process.env.PORT || 3000)
