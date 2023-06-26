@@ -5,7 +5,10 @@ const { Schema, model } = require('mongoose'),
       email: { type: String, required: true, unique: true },
       password: { type: String, required: true },
     },
-    { timestamps: true }
+    {
+      timestamps: true,
+      versionKey: false,
+    }
   );
 
 userSchema.methods.encryptPassword = async function (password) {

@@ -1,10 +1,9 @@
-const User = require('../models/User'),
-  { NODE_ENV } = process.env,
+const User = require('./User'),
   passport = require('passport');
 
 const userController = {};
 
-userController.renderSignUpForm = (req, res) => res.render('./users/sign-up');
+userController.renderSignUpForm = (req, res) => res.render('./user/sign-up');
 
 userController.signUp = async (req, res) => {
   try {
@@ -14,14 +13,14 @@ userController.signUp = async (req, res) => {
     await newUser.encryptPassword(password);
     await newUser.save();
 
-    return NODE_ENV === 'test' ? res.send({ message: 'user has been created' }) : res.redirect('/users/sign-in');
+    res.redirect('/users/sign-in');
   } catch (err) {
     req.flash('err_msg', err.message);
     return res.redirect('/users/sign-up');
   }
 };
 
-userController.renderSignInForm = (req, res) => res.render('./users/sign-in');
+userController.renderSignInForm = (req, res) => res.render('./user/sign-in');
 
 userController.signInLocal = passport.authenticate('local', {
   failureRedirect: '/users/sign-in',

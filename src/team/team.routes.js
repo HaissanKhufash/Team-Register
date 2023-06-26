@@ -1,8 +1,8 @@
 const { Router } = require('express'),
   router = Router(),
-  teamController = require('../controllers/team.controller'),
-  { checkAuthentication } = require('../middlewares/validations/user_path_authentication/checkAuthentication'),
-  { createRight, updateRight } = require('../middlewares/validations/team_coming_data/validatingTeamData');
+  teamController = require('./team.controller'),
+  { checkAuthentication } = require('../middlewares/validations/checkAuthentication'),
+  { createRight, updateRight } = require('../middlewares/validations/validatingTeamData');
 
 router
   .get('/teams/add', checkAuthentication, teamController.renderTeamForm)

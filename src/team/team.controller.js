@@ -1,8 +1,8 @@
-const Team = require('../models/Team'),
-  { authorizate } = require('../helpers/user_path_authorization/checkAuthorization'),
+const Team = require('./Team'),
+  { authorizate } = require('../helpers/checkAuthorization'),
   teamController = {};
 
-teamController.renderTeamForm = (req, res) => res.render('./teams/new-team');
+teamController.renderTeamForm = (req, res) => res.render('./team/new-team');
 
 teamController.createNewTeam = (req, res) => {
   try {
@@ -28,7 +28,7 @@ teamController.createNewTeam = (req, res) => {
 teamController.renderTeams = async (req, res) => {
   try {
     const teamsFound = await Team.find({ user: req.user.id });
-    res.render('./teams/get-all-teams', { teams: teamsFound });
+    res.render('./team/get-all-teams', { teams: teamsFound });
   } catch (err) {
     req.flash('err_msg', err.message);
     return res.redirect('/teams');
@@ -41,7 +41,7 @@ teamController.renderEditForm = async (req, res) => {
       comparisonData = { registeredUser: teamFound.user, sessionUser: req.user.id };
     authorizate(comparisonData, req, res);
 
-    res.render('./teams/update-team', { teamFound });
+    res.render('./team/update-team', { teamFound });
   } catch (err) {
     req.flash('err_msg', err.message);
     return res.redirect('/teams');

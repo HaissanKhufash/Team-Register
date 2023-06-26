@@ -1,0 +1,14 @@
+if success_msg[0]
+    div(class="alert alert-success alert-dismissible fade show" role="alert")
+        span= success_msg[0]
+        button.btn-close(type='button' data-bs-dismiss='alert' aria-label='Close')
+
+if err_msg[0]
+    div(class="alert alert-danger alert-dismissible fade show" role="alert")
+        span= err_msg[0]
+        button.btn-close(type='button' data-bs-dismiss='alert' aria-label='Close')
+
+if error[0]
+    div(class="alert alert-danger alert-dismissible fade show" role="alert") 
+        span= error[0]
+        button.btn-close(type='button' data-bs-dismiss='alert' aria-label='Close')

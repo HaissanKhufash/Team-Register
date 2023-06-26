@@ -1,0 +1,40 @@
+extends ../layouts/main.pug
+
+block content
+
+    block main
+        main.p-5
+            section.jumbotron
+                article
+                    h2.display-4 Which teams are supposed to manage?
+                    p.lead.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi ut, obcaecati molestiae quia recusandae consectetur quos. Molestiae, quidem asperiores itaque a corrupti enim iste inventore commodi, accusamus consectetur nobis doloremque.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi ut, obcaecati molestiae quia recusandae consectetur quos. Molestiae, quidem asperiores itaque a corrupti enim iste inventore commodi, accusamus consectetur nobis doloremque.
+                
+                article.card
+                    div.card-header.text-center
+                        h2.display-4 Teams
+
+                    div.card-body
+                        table.table
+                            thead
+                                tr
+                                    th(scope='col') Team
+                                    th(scope='col') Titles
+                                    th(scope='col') Current manager
+                                    th(scope='col') Kit colors
+                                    th(scope='col') Action
+
+                            tbody.table-group-divider
+                                each team in teams
+                                    tr
+                                        td= team.team
+                                        td= team.titles
+                                        td= team.crrMng
+                                        td= team.kitCls
+                                        td
+                                            a(href=`/teams/edit/${team._id}`)
+                                                i.bi.bi-pen-fill
+                                            form.d-inline(action=`/teams/delete/${team._id}?_method=DELETE` method="POST").form-inline
+                                                input(type="hidden" name="_method" value="DELETE")
+                                                button.bi.bi-trash3-fill.a-delete.p-0(type="submit")

@@ -1,7 +1,7 @@
 const { Router } = require('express'),
   router = Router(),
-  userController = require('../controllers/user.controller'),
-  { signUpValidator } = require('../middlewares/validations/sign_up_coming_data/validatingComingData');
+  userController = require('./user.controller'),
+  { signUpValidator } = require('../middlewares/validations/validatingComingData');
 
 router
   .get('/users/sign-up', userController.renderSignUpForm)

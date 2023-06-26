@@ -1,6 +1,6 @@
 const passport = require('passport'),
   googleStrategy = require('passport-google-oauth20').Strategy,
-  GoogleUser = require('../models/GoogleUser');
+  GoogleUser = require('../user/GoogleUser');
 
 async function userValidation(accessToken, refreshToken, profile, done) {
   try {

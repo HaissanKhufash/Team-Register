@@ -1,10 +1,10 @@
 const indexController = {
   renderIndex: (req, res) => {
-    res.render('./partials/index');
+    res.render('./principle/index');
   },
 
   rederAbout: (req, res) => {
-    res.render('./partials/about');
+    res.render('./principle/about');
   },
 };
 

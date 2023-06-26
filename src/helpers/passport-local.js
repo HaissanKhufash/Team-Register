@@ -1,6 +1,6 @@
 const passport = require('passport'),
   localStrategy = require('passport-local'),
-  User = require('../models/User');
+  User = require('../user/User');
 
 async function userValidation(email, password, done) {
   try {

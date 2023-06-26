@@ -25,11 +25,14 @@ html {
 
 body {
     background-color: var(--white);
+    overflow-x: hidden;
 }
 
 a {
     text-decoration: none;
 }
+
+/* My styles */
 
 .a-delete {
     color: var(--delete);
@@ -41,7 +44,6 @@ a {
     color: var(--edit);
 }
 
-/* My styles */
 .bg-black {
     background-color: var(--black) !important;
 }
@@ -55,21 +57,55 @@ a {
     background-color: var(--success);
 }
 
+.btn-primary{
+    width: auto;
+    background-color: var(--pastel);
+    border-color: transparent;
+}
+
+.btn-secondary{
+    width: auto;
+    background-color: var(--grey);
+    color: var(--black);
+    border-color: transparent;
+}
+
 .navbar-nav a:hover {
     color: var(--white);
     background-color: var(--pastel);
     border-radius: .25rem;
 }
 
+.navbar-nav li, .dropdown{
+    padding-top: .35rem;
+    border-bottom: thin solid var(--grey-with-opacity);
+    border-radius: .25rem;
+}
+
+.dropdown{
+    border: none;
+}
 
 /* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {}
+@media (min-width: 576px) {
+    
+}
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {}
 
 /* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {}
+@media (min-width: 992px) {
+    .navbar-nav a:hover {
+        color: var(--white);
+        background-color: transparent;
+    }
+
+    .navbar-nav li{
+        padding-top: 0;
+        border-bottom: none;
+    }    
+}
 
 /* X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {}
