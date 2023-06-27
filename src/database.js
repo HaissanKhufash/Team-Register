@@ -14,3 +14,7 @@ const mongoose = require('mongoose'),
     if (NODE_ENV !== 'test') console.log(err.message);
   }
 })();
+
+const connection = mongoose.connection;
+
+exports.connection = connection;

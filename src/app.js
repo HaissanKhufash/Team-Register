@@ -11,9 +11,16 @@ const express = require('express'),
   teamRoutes = require('./team/team.routes'),
   methodOverride = require('method-override'),
   session = require('express-session'),
+  MongoStore = require('connect-mongo'),
+  connection = require('./database').connection,
   flash = require('connect-flash'),
   { globalize } = require('./middlewares/globalizeInfo'),
-  passport = require('passport');
+  passport = require('passport'),
+  store = MongoStore.create({
+    mongoUrl: process.env.MONGODB_URL,
+    mongooseConnection: connection,
+    collection: 'sessions',
+  });
 
 require('./helpers/passport-local');
 
@@ -37,6 +44,10 @@ app
       secret: 'secret',
       resave: false,
       saveUninitialized: false,
+      store,
+      cookie: {
+        maxAge: 1000 * 60 * 60 * 24,
+      },
     })
   )
 
